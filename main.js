@@ -1,24 +1,27 @@
 const ul = document.getElementById('recipes');
 const submit = document.getElementById('submit');
 const wrapper = document.querySelector(".wrapper");
+const h2 = document.querySelector("h2");
 submit.addEventListener('click', fetchData);
 
 function fetchData(event){
   let searchterm = document.getElementById('input').value;
   let url = `http://www.recipepuppy.com/api/?q=${searchterm}`
 
+  h2.innerHTML = "See search results for " + document.getElementById('input').value;
+
   fetch(url)
   .then((response) => response.json())
   .then(data => {
     for (let i = 0; i < data.results.length; i++) {
 
-      let wholeRecipe = document.createElement("div")
       let wholeRecipeLink = document.createElement("a")
+      let wholeRecipe = document.createElement("div")
       let recipeTitle = document.createElement("li");
       let recipeThumbnail = document.createElement("li");
 
-      wrapper.appendChild(wholeRecipe);
       wholeRecipe.appendChild(wholeRecipeLink);
+      wrapper.appendChild(wholeRecipe);
       wholeRecipeLink.appendChild(recipeTitle);
       wholeRecipeLink.appendChild(recipeThumbnail);
 
