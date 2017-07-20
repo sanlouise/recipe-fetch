@@ -15,7 +15,7 @@ function fetchData(event){
   .then(data => {
     for (let i = 0; i < data.results.length; i++) {
 
-
+      let wholeRecipeLink = document.createElement("a");
       let wholeRecipe = document.createElement("div")
       let recipeTitle = document.createElement("li");
       let recipeThumbnail = document.createElement("li");
