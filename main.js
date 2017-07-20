@@ -6,7 +6,7 @@ submit.addEventListener('click', fetchData);
 
 function fetchData(event){
   let searchterm = document.getElementById('input').value;
-  let url = `http://www.recipepuppy.com/api/?q=${searchterm}`
+  let url = `https://crossorigin.me/http://www.recipepuppy.com/api/?q=${searchterm}`
 
   h2.innerHTML = "See search results for " + document.getElementById('input').value;
 
@@ -15,7 +15,7 @@ function fetchData(event){
   .then(data => {
     for (let i = 0; i < data.results.length; i++) {
 
-      let wholeRecipeLink = document.createElement("a")
+
       let wholeRecipe = document.createElement("div")
       let recipeTitle = document.createElement("li");
       let recipeThumbnail = document.createElement("li");
